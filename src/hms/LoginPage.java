@@ -2,7 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package hospital.management.system;
+package hms;
+
+
+
 
 /**
  *
@@ -146,7 +149,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Doctors Doc = new Doctors();
+        DoctorLogin Doc = new DoctorLogin();
         Doc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

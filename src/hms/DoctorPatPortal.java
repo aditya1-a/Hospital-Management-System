@@ -4,19 +4,16 @@
  */
 package hms;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author anupamaditya
  */
-public class Doctors extends javax.swing.JFrame {
+public class DoctorPatPortal extends javax.swing.JFrame {
 
     /**
-     * Creates new form Doctors
+     * Creates new form DoctorPatPortal
      */
-    public Doctors() {
+    public DoctorPatPortal() {
         initComponents();
     }
 
@@ -30,46 +27,59 @@ public class Doctors extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        AptButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        AptButton.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        AptButton.setForeground(new java.awt.Color(0, 102, 153));
-        AptButton.setText("Appointments");
-        jPanel1.add(AptButton);
-        AptButton.setBounds(60, 390, 350, 90);
+        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/medical-checkup.png")); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(910, 320, 150, 140);
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 153));
-        jButton1.setText("Patient Details");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(60, 530, 350, 100);
-
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 102, 153));
-        jButton2.setText("Logout");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton2.setText("Check Patient History");
+        jPanel1.add(jButton2);
+        jButton2.setBounds(890, 470, 180, 40);
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(840, 280, 260, 250);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/add-user.png")); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(290, 320, 130, 128);
+
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 102, 153));
+        jButton1.setText("Edit Patient Vital");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(260, 470, 200, 40);
+
+        jButton3.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/undo.png")); // NOI18N
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                jButton3MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(130, 680, 190, 60);
+        jPanel1.add(jButton3);
+        jButton3.setBounds(1320, 10, 90, 70);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/drback-3.jpg")); // NOI18N
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(220, 280, 260, 250);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/pat-4.jpg")); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, -90, 1430, 1030);
+        jLabel1.setBounds(-20, -140, 1450, 1140);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,39 +87,24 @@ public class Doctors extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1429, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1435, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        
-    
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-        JFrame frame = new JFrame("Logout");
-        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to logout", "logout", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
-        {
-            //System.exit(0);
-             DoctorLogin dl = new DoctorLogin();
-             dl.setVisible(true);
-        }
-       
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        DoctorPatPortal dpp= new DoctorPatPortal();
-        dpp.setVisible(true);   
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:     
+        Doctors doc2= new Doctors();
+        doc2.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -128,29 +123,33 @@ public class Doctors extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Doctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPatPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Doctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPatPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Doctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPatPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Doctors.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DoctorPatPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Doctors().setVisible(true);
+                new DoctorPatPortal().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AptButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
