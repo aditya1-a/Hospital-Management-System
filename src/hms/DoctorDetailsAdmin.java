@@ -22,6 +22,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         initComponents();
         
         DocDirectory = new DoctorDirectory();
+        //addDefaultData(this.DocDirectory);
        
     }
 
@@ -35,7 +36,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        JViewDocBtn = new javax.swing.JButton();
         JAddDoctorButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -46,18 +47,18 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 102, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 153));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/file.png")); // NOI18N
-        jButton1.setText("View Doctor");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JViewDocBtn.setBackground(new java.awt.Color(0, 102, 153));
+        JViewDocBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JViewDocBtn.setForeground(new java.awt.Color(255, 255, 255));
+        JViewDocBtn.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/file.png")); // NOI18N
+        JViewDocBtn.setText("View Doctor");
+        JViewDocBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JViewDocBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JViewDocBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 160, 60));
+        jPanel2.add(JViewDocBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 160, 60));
 
         JAddDoctorButton.setBackground(new java.awt.Color(0, 102, 153));
         JAddDoctorButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -103,9 +104,12 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JViewDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JViewDocBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        ViewDoctorDetails Vdd = new ViewDoctorDetails(DocDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
+        Vdd.setVisible(true);
+    }//GEN-LAST:event_JViewDocBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -158,7 +162,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JAddDoctorButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton JViewDocBtn;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel2;

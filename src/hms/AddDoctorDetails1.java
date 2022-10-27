@@ -187,6 +187,11 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
                 JBackAddDoctorButtonMouseClicked(evt);
             }
         });
+        JBackAddDoctorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBackAddDoctorButtonActionPerformed(evt);
+            }
+        });
         jPanel1.add(JBackAddDoctorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 150, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,8 +224,8 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
 
     private void JBackAddDoctorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBackAddDoctorButtonMouseClicked
         // TODO add your handling code here:
-        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
-        DDA.setVisible(true);
+       // DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
+        //DDA.setVisible(true);
     }//GEN-LAST:event_JBackAddDoctorButtonMouseClicked
 
     private void JGenderDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JGenderDocActionPerformed
@@ -241,8 +246,26 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         int phoneNo = Integer.parseInt(JPhoneNoDoc.getText());
         String city = JCityDoc.getText();
         Date JoiningDate = JJoiningDateDoc.getDate();
+      
+  
         
         DocData dd = DocDirectory.addNewDocData();
+        if (docID.isEmpty() || fname.isEmpty()|| lname.isEmpty() ||/* age.isEmpty()||*/ bloodgroup.isEmpty() 
+                || gender.isEmpty() || department.isEmpty() || address.isEmpty() || 
+                /*phoneNo.isEmpty() || */ city.isEmpty()/*|| JoiningDate.isEmpty()*/){
+            JOptionPane.showMessageDialog(this,
+                    "Please enter all fields",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE);  
+                }
+        else if(phoneNo<10){
+            JOptionPane.showMessageDialog(this,
+                    "Please enter cell no of 10 digits",
+                    "Try Again",
+                    JOptionPane.ERROR_MESSAGE); 
+           
+        }
+        else{
         dd.setFName(fname);
         dd.setLName(lname);
         dd.setDocID(docID);
@@ -253,7 +276,7 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         dd.setPhoneNo(phoneNo);
         //dd.setAddress(address);
         dd.setJoiningDate(JoiningDate);
-
+        
         
         JOptionPane.showMessageDialog(this, "New record added");
         
@@ -268,7 +291,7 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
             JAddressDoc.setText("");
             JPhoneNoDoc.setText("");
         
-        
+        }
         //String DocID = JDocID.getText();
         //String FName
         
@@ -344,6 +367,13 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_JSaveDocButtonMouseClicked
+
+    private void JBackAddDoctorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBackAddDoctorButtonActionPerformed
+        // TODO add your handling code here:
+        
+        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
+        DDA.setVisible(true);
+    }//GEN-LAST:event_JBackAddDoctorButtonActionPerformed
 
     /**
      * @param args the command line arguments

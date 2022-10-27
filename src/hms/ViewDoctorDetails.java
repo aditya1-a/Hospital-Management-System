@@ -6,6 +6,7 @@ package hms;
 
 import javax.swing.GroupLayout.Group;
 import javax.swing.table.DefaultTableModel;
+import model.DocData;
 import model.DoctorDirectory;
 
 /**
@@ -17,11 +18,21 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
     /**
      * Creates new form ViewDoctorDetails
      */
-    public ViewDoctorDetails() {
+    
+    
+    DoctorDirectory DocDirectory;
+    
+    public ViewDoctorDetails(DoctorDirectory DocDirectory) {
         initComponents();
         
-       // populateTable();
+        this.DocDirectory = DocDirectory;
+        
+       populateTable();
     }
+
+    private ViewDoctorDetails() {
+       throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +70,7 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
         JUpdateDocBtn = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         TFSearchDoc = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -69,6 +81,8 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
 
         JTableDoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -194,6 +208,10 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
         jPanel1.add(TFSearchDoc);
         TFSearchDoc.setBounds(450, 20, 500, 40);
 
+        jButton1.setText("View");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(310, 520, 110, 30);
+
         jLabel1.setBackground(new java.awt.Color(0, 102, 153));
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1390, 910);
@@ -284,6 +302,7 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
     private javax.swing.JTable JTableDoc;
     private javax.swing.JButton JUpdateDocBtn;
     private javax.swing.JTextField TFSearchDoc;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -300,16 +319,33 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
-/*
+
     private void populateTable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
+        DefaultTableModel model = (DefaultTableModel) JTableDoc.getModel();
+        model.setRowCount(0);
         
-        //DefaultTableModel model = (DefaultTableModel) JTableDoc.getModel();
-       // DoctorDirectory doctordirectory = (DoctorDirectory) model.getValueAt(selectedRowIndex, 1);
+        for(DocData dd : DocDirectory.getDoctorDirectory()){
+            
+            Object[] row = new Object[10];
+            row[0] =  dd.getDocID();
+            row[1] =  dd.getFName();
+            row[2] =  dd.getLName();
+            row[3] =  dd.getAge();
+            row[4] =  dd.getBloodgroup();
+            row[5] =  dd.getDepartment();
+            row[6] =  dd.getAddress();
+            row[7] =  dd.getCity();
+            row[8] =  dd.getPhoneNo();
+            row[9] =  dd.getJoiningDate();
+            
+            model.addRow(row);
+            
+            
+        }
         
-        //model.addRow( new Object[] {DocID, FName, LName, Age, Blood Group, Department, Address, 
-                //City, PhoneNo, Joining Date});
-        
-    
-}*/
-}
+
+    }
+    }
+
+

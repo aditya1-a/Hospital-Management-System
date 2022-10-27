@@ -15,6 +15,15 @@ public class PersonModel {
     private String gender;
     private House address;
     private String bloodgroup;
+    private City city;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public String getFName() {
         return FName;
