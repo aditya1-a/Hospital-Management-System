@@ -31,13 +31,13 @@ public class LoginPage extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JCommunityAdminButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        JDoctorButton = new javax.swing.JButton();
+        JPatientButton = new javax.swing.JButton();
+        JSystemAdminButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -49,16 +49,16 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(580, 430, 130, 140);
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 153));
-        jButton1.setText("Community Admins");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JCommunityAdminButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        JCommunityAdminButton.setForeground(new java.awt.Color(0, 102, 153));
+        JCommunityAdminButton.setText("Community Admins");
+        JCommunityAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JCommunityAdminButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1);
-        jButton1.setBounds(540, 580, 190, 40);
+        jPanel2.add(JCommunityAdminButton);
+        JCommunityAdminButton.setBounds(540, 580, 190, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/medical-team.png")); // NOI18N
         jPanel2.add(jLabel4);
@@ -72,38 +72,38 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(340, 430, 130, 140);
 
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 102, 153));
-        jButton2.setText("Doctors");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JDoctorButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        JDoctorButton.setForeground(new java.awt.Color(0, 102, 153));
+        JDoctorButton.setText("Doctors");
+        JDoctorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JDoctorButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(790, 580, 170, 40);
+        jPanel2.add(JDoctorButton);
+        JDoctorButton.setBounds(790, 580, 170, 40);
 
-        jButton3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 102, 153));
-        jButton3.setText("Patient");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JPatientButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        JPatientButton.setForeground(new java.awt.Color(0, 102, 153));
+        JPatientButton.setText("Patient");
+        JPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JPatientButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3);
-        jButton3.setBounds(1010, 580, 170, 40);
+        jPanel2.add(JPatientButton);
+        JPatientButton.setBounds(1010, 580, 170, 40);
 
-        jButton4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 102, 153));
-        jButton4.setText("System Admin");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        JSystemAdminButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        JSystemAdminButton.setForeground(new java.awt.Color(0, 102, 153));
+        JSystemAdminButton.setText("System Admin");
+        JSystemAdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                JSystemAdminButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4);
-        jButton4.setBounds(320, 580, 170, 40);
+        jPanel2.add(JSystemAdminButton);
+        JSystemAdminButton.setBounds(320, 580, 170, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/image-3.png")); // NOI18N
         jPanel2.add(jLabel1);
@@ -133,33 +133,33 @@ public class LoginPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void JSystemAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSystemAdminButtonActionPerformed
         // TODO add your handling code here:
-        SystemAdmin SL = new SystemAdmin();
-        SL.setVisible(true);
+        SystemAdminLogin SAL = new SystemAdminLogin();
+        SAL.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_JSystemAdminButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JCommunityAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCommunityAdminButtonActionPerformed
         // TODO add your handling code here:
         CommunityAdmins CA = new CommunityAdmins();
         CA.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JCommunityAdminButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void JDoctorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JDoctorButtonActionPerformed
         // TODO add your handling code here:
         DoctorLogin Doc = new DoctorLogin();
         Doc.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_JDoctorButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void JPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPatientButtonActionPerformed
         // TODO add your handling code here:
         Patient Pat = new Patient();
         Pat.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_JPatientButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,10 +197,10 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton JCommunityAdminButton;
+    private javax.swing.JButton JDoctorButton;
+    private javax.swing.JButton JPatientButton;
+    private javax.swing.JButton JSystemAdminButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

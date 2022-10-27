@@ -31,8 +31,8 @@ public class Doctors extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         AptButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JDoctorPat = new javax.swing.JButton();
+        JLogoutDoctor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,27 +45,27 @@ public class Doctors extends javax.swing.JFrame {
         jPanel1.add(AptButton);
         AptButton.setBounds(60, 390, 350, 90);
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 153));
-        jButton1.setText("Patient Details");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        JDoctorPat.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        JDoctorPat.setForeground(new java.awt.Color(0, 102, 153));
+        JDoctorPat.setText("Patient Details");
+        JDoctorPat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                JDoctorPatMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(60, 530, 350, 100);
+        jPanel1.add(JDoctorPat);
+        JDoctorPat.setBounds(60, 530, 350, 100);
 
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 102, 153));
-        jButton2.setText("Logout");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        JLogoutDoctor.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        JLogoutDoctor.setForeground(new java.awt.Color(0, 102, 153));
+        JLogoutDoctor.setText("Logout");
+        JLogoutDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                JLogoutDoctorMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(130, 680, 190, 60);
+        jPanel1.add(JLogoutDoctor);
+        JLogoutDoctor.setBounds(130, 680, 190, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/drback-3.jpg")); // NOI18N
         jPanel1.add(jLabel1);
@@ -93,7 +93,7 @@ public class Doctors extends javax.swing.JFrame {
 
         
     
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void JLogoutDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLogoutDoctorMouseClicked
         // TODO add your handling code here:
         JFrame frame = new JFrame("Logout");
         if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to logout", "logout", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
@@ -103,13 +103,13 @@ public class Doctors extends javax.swing.JFrame {
              dl.setVisible(true);
         }
        
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_JLogoutDoctorMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void JDoctorPatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JDoctorPatMouseClicked
         // TODO add your handling code here:
         DoctorPatPortal dpp= new DoctorPatPortal();
         dpp.setVisible(true);   
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_JDoctorPatMouseClicked
 
     /**
      * @param args the command line arguments
@@ -148,8 +148,8 @@ public class Doctors extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AptButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton JDoctorPat;
+    private javax.swing.JButton JLogoutDoctor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -26,21 +26,98 @@ public class SystemAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        JDoctorDetailAdminButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(null);
+
+        jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 102, 153));
+        jButton3.setText("Hospital Details");
+        jPanel1.add(jButton3);
+        jButton3.setBounds(1030, 570, 150, 40);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/hospital.png")); // NOI18N
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(1040, 420, 140, 140);
+
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(1010, 400, 190, 220);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/patient-3.png")); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(640, 410, 140, 140);
+
+        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 102, 153));
+        jButton2.setText("Patient Details");
+        jPanel1.add(jButton2);
+        jButton2.setBounds(630, 570, 150, 40);
+
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(610, 400, 190, 220);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/doctor-2.png")); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(260, 420, 140, 140);
+
+        JDoctorDetailAdminButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JDoctorDetailAdminButton.setForeground(new java.awt.Color(0, 102, 153));
+        JDoctorDetailAdminButton.setText("Doctor Details");
+        JDoctorDetailAdminButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JDoctorDetailAdminButtonMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JDoctorDetailAdminButton);
+        JDoctorDetailAdminButton.setBounds(240, 570, 150, 40);
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(220, 400, 190, 220);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/Temp-1700x900.jpg")); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(-40, -200, 1580, 1240);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1537, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JDoctorDetailAdminButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JDoctorDetailAdminButtonMouseClicked
+        // TODO add your handling code here:
+        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
+        DDA.setVisible(true);
+    }//GEN-LAST:event_JDoctorDetailAdminButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -78,5 +155,16 @@ public class SystemAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JDoctorDetailAdminButton;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
