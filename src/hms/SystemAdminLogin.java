@@ -165,6 +165,7 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         LoginPage lp = new LoginPage();
         lp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_JBackAdminPanelButtonMouseClicked
    
     

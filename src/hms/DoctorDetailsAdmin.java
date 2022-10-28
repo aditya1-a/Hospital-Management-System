@@ -6,10 +6,6 @@ package hms;
 
 import model.DoctorDirectory;
 
-/**
- *
- * @author anupamaditya
- */
 public class DoctorDetailsAdmin extends javax.swing.JFrame {
 
     /**
@@ -23,7 +19,13 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         
         DocDirectory = new DoctorDirectory();
         //addDefaultData(this.DocDirectory);
+            
+    }
+
+    DoctorDetailsAdmin(DoctorDirectory DocDirectory) { 
+        initComponents();
        
+        this.DocDirectory = DocDirectory;
     }
 
     /**
@@ -40,6 +42,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         JAddDoctorButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        btnBackDoctorDetailsAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,6 +102,22 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         });
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 160, 60));
 
+        btnBackDoctorDetailsAdmin.setBackground(new java.awt.Color(0, 153, 204));
+        btnBackDoctorDetailsAdmin.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/undo-2.png")); // NOI18N
+        btnBackDoctorDetailsAdmin.setText("Back");
+        btnBackDoctorDetailsAdmin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBackDoctorDetailsAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackDoctorDetailsAdminMouseClicked(evt);
+            }
+        });
+        btnBackDoctorDetailsAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackDoctorDetailsAdminActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnBackDoctorDetailsAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 150, 60));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 6, 1470, 990));
 
         pack();
@@ -109,6 +128,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         
         ViewDoctorDetails Vdd = new ViewDoctorDetails(DocDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
         Vdd.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_JViewDocBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -123,7 +143,23 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         AddDoctorDetails1 Add = new AddDoctorDetails1(DocDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
         Add.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_JAddDoctorButtonMouseClicked
+
+    private void btnBackDoctorDetailsAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackDoctorDetailsAdminMouseClicked
+        // TODO add your handling code here:
+        // DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
+        //DDA.setVisible(true);
+    }//GEN-LAST:event_btnBackDoctorDetailsAdminMouseClicked
+
+    private void btnBackDoctorDetailsAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackDoctorDetailsAdminActionPerformed
+        // TODO add your handling code here:
+
+        //DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
+       SystemAdmin SA = new SystemAdmin(DocDirectory);
+       SA.setVisible(true); 
+       this.dispose();
+    }//GEN-LAST:event_btnBackDoctorDetailsAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,6 +199,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JAddDoctorButton;
     private javax.swing.JButton JViewDocBtn;
+    private javax.swing.JButton btnBackDoctorDetailsAdmin;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel2;

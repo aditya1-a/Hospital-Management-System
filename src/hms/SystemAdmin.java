@@ -4,6 +4,8 @@
  */
 package hms;
 
+import model.DoctorDirectory;
+
 /**
  *
  * @author anupamaditya
@@ -13,8 +15,20 @@ public class SystemAdmin extends javax.swing.JFrame {
     /**
      * Creates new form SystemAdmin
      */
+    
+    DoctorDirectory DocDirectory;
+    
     public SystemAdmin() {
         initComponents();
+        
+        DocDirectory = new DoctorDirectory();
+    }
+
+    SystemAdmin(DoctorDirectory DocDirectory) {
+       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       initComponents();
+       this.DocDirectory = DocDirectory;
+       
     }
 
     /**
@@ -115,8 +129,9 @@ public class SystemAdmin extends javax.swing.JFrame {
 
     private void JDoctorDetailAdminButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JDoctorDetailAdminButtonMouseClicked
         // TODO add your handling code here:
-        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
+        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
         DDA.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_JDoctorDetailAdminButtonMouseClicked
 
     /**

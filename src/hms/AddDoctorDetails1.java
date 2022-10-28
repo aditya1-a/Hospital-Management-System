@@ -17,6 +17,8 @@ import model.House;
  *
  * @author anupamaditya
  */
+
+
 public class AddDoctorDetails1 extends javax.swing.JFrame {
 
     /**
@@ -370,9 +372,10 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
 
     private void JBackAddDoctorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBackAddDoctorButtonActionPerformed
         // TODO add your handling code here:
+  
         
-        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
-        DDA.setVisible(true);
+        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
+        DDA.setVisible(true); 
     }//GEN-LAST:event_JBackAddDoctorButtonActionPerformed
 
     /**

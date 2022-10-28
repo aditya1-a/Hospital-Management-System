@@ -299,7 +299,7 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser JJoiningDateDoc;
     private javax.swing.JTextField JLNameDoc;
     private javax.swing.JTextField JPhoneNoDoc;
-    private javax.swing.JTable JTableDoc;
+    public javax.swing.JTable JTableDoc;
     private javax.swing.JButton JUpdateDocBtn;
     private javax.swing.JTextField TFSearchDoc;
     private javax.swing.JButton jButton1;
