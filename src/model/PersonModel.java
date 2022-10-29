@@ -13,10 +13,30 @@ public class PersonModel {
     private String LName;
     private int age;
     private String gender;
-    private House address;
     private String bloodgroup;
     private City city;
+    private Community community;
+    private Community pincode;
+    private House house;
+    private City country;
 
+    public City getCountry() {
+        return country;
+    }
+
+    public void setCountry(City country) {
+        this.country = country;
+    }
+    
+
+    public Community getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(Community pincode) {
+        this.pincode = pincode;
+    }
+    
     public City getCity() {
         return city;
     }
@@ -24,6 +44,23 @@ public class PersonModel {
     public void setCity(City city) {
         this.city = city;
     }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
+    
 
     public String getFName() {
         return FName;
@@ -65,19 +102,11 @@ public class PersonModel {
         this.gender = gender;
     }
 
-    public House getAddress() {
-        return address;
-    }
-
-    public void setAddress( House address) {
-        this.address = address;
-    }
-
-    public int getPhoneNo() {
+    public String getPhoneNo() {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
 
@@ -88,7 +117,7 @@ public class PersonModel {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-    private int phoneNo;
+    private String phoneNo;
     private String emailAddress;
     
     

@@ -39,5 +39,10 @@ public class DocData extends PersonModel {
     public void setJoiningDate(Date JoiningDate) {
         this.JoiningDate = JoiningDate;
     }
+    
+    @Override    // we are overriding toSTring that returns DocID. we will be telling Java that overriding something that inherits 
+    public String toString(){    
+        return DocID;
+    }
 }
     

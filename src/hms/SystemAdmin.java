@@ -5,6 +5,9 @@
 package hms;
 
 import model.DoctorDirectory;
+import model.HospitalDirectory;
+import model.PatientDirectory;
+
 
 /**
  *
@@ -17,20 +20,56 @@ public class SystemAdmin extends javax.swing.JFrame {
      */
     
     DoctorDirectory DocDirectory;
+    PatientDirectory PatDirectory;
+    HospitalDirectory HospDirectory;
     
     public SystemAdmin() {
         initComponents();
         
         DocDirectory = new DoctorDirectory();
+        PatDirectory = new PatientDirectory();
+        HospDirectory = new HospitalDirectory();
     }
 
     SystemAdmin(DoctorDirectory DocDirectory) {
        // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
        initComponents();
        this.DocDirectory = DocDirectory;
+      
        
     }
 
+    SystemAdmin(PatientDirectory PatDirectory) {
+        initComponents();
+        this.PatDirectory = PatDirectory;
+    }
+
+    SystemAdmin(HospitalDirectory HospDirectory) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        initComponents();
+        this.HospDirectory = HospDirectory;
+    }
+
+//    SystemAdmin(PatientDirectory PatDirectory, HospitalDirectory HospDirectory, DoctorDirectory DocDirectory) {
+//        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        initComponents();
+//        this.PatDirectory = PatDirectory;
+//        this.DocDirectory = DocDirectory;
+//        this.HospDirectory = HospDirectory;
+//        
+//    }
+
+//    SystemAdmin(HospitalDirectory HospDirectory, DoctorDirectory DocDirectory, PatientDirectory PatDirectory) {
+//        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        initComponents();
+//        this.PatDirectory = PatDirectory;
+//        this.DocDirectory = DocDirectory;
+//        this.HospDirectory = HospDirectory;
+//        
+//    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,11 +80,11 @@ public class SystemAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        JHospitalDetailsBtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        JPatientDetailsBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         JDoctorDetailAdminButton = new javax.swing.JButton();
@@ -56,11 +95,16 @@ public class SystemAdmin extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 102, 153));
-        jButton3.setText("Hospital Details");
-        jPanel1.add(jButton3);
-        jButton3.setBounds(1030, 570, 150, 40);
+        JHospitalDetailsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JHospitalDetailsBtn.setForeground(new java.awt.Color(0, 102, 153));
+        JHospitalDetailsBtn.setText("Hospital Details");
+        JHospitalDetailsBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JHospitalDetailsBtnMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JHospitalDetailsBtn);
+        JHospitalDetailsBtn.setBounds(1030, 570, 150, 40);
 
         jLabel7.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/hospital.png")); // NOI18N
         jPanel1.add(jLabel7);
@@ -74,11 +118,21 @@ public class SystemAdmin extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(640, 410, 140, 140);
 
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 102, 153));
-        jButton2.setText("Patient Details");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(630, 570, 150, 40);
+        JPatientDetailsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JPatientDetailsBtn.setForeground(new java.awt.Color(0, 102, 153));
+        JPatientDetailsBtn.setText("Patient Details");
+        JPatientDetailsBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JPatientDetailsBtnMouseClicked(evt);
+            }
+        });
+        JPatientDetailsBtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JPatientDetailsBtnKeyPressed(evt);
+            }
+        });
+        jPanel1.add(JPatientDetailsBtn);
+        JPatientDetailsBtn.setBounds(630, 570, 150, 40);
 
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
         jPanel1.add(jLabel4);
@@ -134,6 +188,28 @@ public class SystemAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_JDoctorDetailAdminButtonMouseClicked
 
+    private void JPatientDetailsBtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPatientDetailsBtnKeyPressed
+        // TODO add your handling code here:
+    
+        
+    }//GEN-LAST:event_JPatientDetailsBtnKeyPressed
+
+    private void JPatientDetailsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPatientDetailsBtnMouseClicked
+        // TODO add your handling code here:
+        PatientDetailsAdmin PDA = new PatientDetailsAdmin(PatDirectory);
+        PDA.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_JPatientDetailsBtnMouseClicked
+
+    private void JHospitalDetailsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JHospitalDetailsBtnMouseClicked
+        // TODO add your handling code here:
+        HospitalDetailsAdmin HDA = new HospitalDetailsAdmin(HospDirectory);
+        HDA.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_JHospitalDetailsBtnMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -171,8 +247,8 @@ public class SystemAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JDoctorDetailAdminButton;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton JHospitalDetailsBtn;
+    private javax.swing.JButton JPatientDetailsBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

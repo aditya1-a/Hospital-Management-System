@@ -33,6 +33,10 @@ public class DoctorDirectory {
         return newdata;                      //it returns the reference to newdata
     }
     
+    public void deleteDoc(DocData dd){
+        DocDirectory.remove(dd);
+    }
+    
    
     
 }

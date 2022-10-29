@@ -4,14 +4,20 @@
  */
 package hms;
 
+import java.awt.event.KeyEvent;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.DoctorDirectory;
 import model.DocData;
 import model.House;
+import model.City;
+import model.Community;
+import model.HospitalDirectory;
+import model.PatientDirectory;
 
 /**
  *
@@ -26,16 +32,38 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
      */
     
     DoctorDirectory DocDirectory;
+
     
     public AddDoctorDetails1(DoctorDirectory DocDirectory) {
         initComponents();
         
         this.DocDirectory = DocDirectory;   //we are pushing whole reference to DoctorDirectory
+        
     }
-
+    
+    
     private AddDoctorDetails1() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+   
+
+//    AddDoctorDetails1(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+//        initComponents();
+//        
+//        this.DocDirectory = DocDirectory;   //we are pushing whole reference to DoctorDirectory
+//        this.PatDirectory = PatDirectory;
+//        this.HospDirectory = HospDirectory;
+//    }
+
+    
+//    AddDoctorDetails1(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+
+//    AddDoctorDetails1(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,7 +91,6 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         JDepartmentDoc = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         JAddressDoc = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         JPhoneNoDoc = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -73,6 +100,14 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         JSaveDocButton = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         JBackAddDoctorButton = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        JPinCode = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        JEmail = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        JCommunityDoc = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        JCountryDoc = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,13 +129,31 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("First Name");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 90, 30));
+
+        JFNameDoc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JFNameDocKeyPressed(evt);
+            }
+        });
         jPanel1.add(JFNameDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 160, 30));
+
+        JLNameDoc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JLNameDocKeyPressed(evt);
+            }
+        });
         jPanel1.add(JLNameDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 160, 160, 30));
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Last Name");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 90, 30));
+
+        JAgeDoc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JAgeDocKeyPressed(evt);
+            }
+        });
         jPanel1.add(JAgeDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 160, 30));
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -139,17 +192,18 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Department");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, 100, 40));
-        jPanel1.add(JAddressDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 540, 30));
-
-        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Address");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 80, 40));
+        jPanel1.add(JAddressDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 260, 30));
 
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Address");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 80, 40));
+        jLabel10.setText("Street Address");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 110, 40));
+
+        JPhoneNoDoc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                JPhoneNoDocKeyPressed(evt);
+            }
+        });
         jPanel1.add(JPhoneNoDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 150, 30));
 
         jLabel11.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -161,7 +215,7 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("City");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 500, 80, 40));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 80, 40));
         jPanel1.add(JJoiningDateDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, 150, 30));
 
         JSaveDocButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -196,25 +250,44 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         });
         jPanel1.add(JBackAddDoctorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 150, 80));
 
+        jLabel14.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("PinCode");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 90, 30));
+        jPanel1.add(JPinCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 150, 30));
+
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Email");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 600, 90, 30));
+        jPanel1.add(JEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 600, 160, 30));
+
+        jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Community");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 160, 100, 30));
+
+        JCommunityDoc.setToolTipText("");
+        jPanel1.add(JCommunityDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 160, 140, 30));
+
+        jLabel16.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Country");
+        jLabel16.setToolTipText("");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 240, 80, 30));
+        jPanel1.add(JCountryDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 240, 140, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 933, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1201, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1133, Short.MAX_VALUE)
         );
 
         pack();
@@ -243,31 +316,45 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         int age = Integer.parseInt(JAgeDoc.getText());
         String gender = JGenderDoc.getSelectedItem().toString();
         String department = JDepartmentDoc.getSelectedItem().toString();
-        String address = JAddressDoc.getText();
+        String streetaddress = JAddressDoc.getText();
+        String pincode = JPinCode.getText();
         String bloodgroup = JBGroupDoc.getText();
-        int phoneNo = Integer.parseInt(JPhoneNoDoc.getText());
+        String phoneNo = JPhoneNoDoc.getText();
         String city = JCityDoc.getText();
+        String community = JCommunityDoc.getText();
+        String country = JCountryDoc.getText();
         Date JoiningDate = JJoiningDateDoc.getDate();
+        String email = JEmail.getText();
+        int length = phoneNo.length();
       
   
         
-        DocData dd = DocDirectory.addNewDocData();
+        //DocData dd = DocDirectory.addNewDocData();
         if (docID.isEmpty() || fname.isEmpty()|| lname.isEmpty() ||/* age.isEmpty()||*/ bloodgroup.isEmpty() 
-                || gender.isEmpty() || department.isEmpty() || address.isEmpty() || 
-                /*phoneNo.isEmpty() || */ city.isEmpty()/*|| JoiningDate.isEmpty()*/){
+                || gender.isEmpty() || department.isEmpty() || streetaddress.isEmpty() || 
+                /*phoneNo.isEmpty() || */ city.isEmpty() || email.isEmpty() || community.isEmpty() || country.isEmpty()/*|| JoiningDate.isEmpty()*/){
             JOptionPane.showMessageDialog(this,
                     "Please enter all fields",
                     "Try Again",
-                    JOptionPane.ERROR_MESSAGE);  
+                    JOptionPane.ERROR_MESSAGE); 
+            
                 }
-        else if(phoneNo<10){
+        else if(length<10){
             JOptionPane.showMessageDialog(this,
                     "Please enter cell no of 10 digits",
                     "Try Again",
-                    JOptionPane.ERROR_MESSAGE); 
+                    JOptionPane.ERROR_MESSAGE);
            
         }
+        else if (!(Pattern.matches("^[a-zA-Z0-9]+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z0-9]+$", email))) 
+{
+            JOptionPane.showMessageDialog(null,
+                    "Please enter a valid email",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            }
         else{
+        DocData dd = DocDirectory.addNewDocData();
         dd.setFName(fname);
         dd.setLName(lname);
         dd.setDocID(docID);
@@ -276,11 +363,35 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         dd.setGender(gender);
         dd.setAge(age);
         dd.setPhoneNo(phoneNo);
-        //dd.setAddress(address);
+        
+        House docHouse = new House();
+        docHouse.setStreetAddress(streetaddress);
+        dd.setHouse(docHouse);
+        
+        City docCity = new City();
+        docCity.setCity(city);
+        dd.setCity(docCity);
+        
+        Community docCommunity = new Community();
+        docCommunity.setCommunityName(community);               
+        dd.setCommunity(docCommunity);
+        
+        Community docpincode = new Community();
+        docpincode.setPincode(pincode);
+        dd.setPincode(docpincode);
+        
+        //docCommunity.setPincode(pincode);   
+        City docCountry = new City();
+        docCountry.setCountry(country);
+        dd.setCountry(docCountry);
+        
         dd.setJoiningDate(JoiningDate);
+        dd.setEmailAddress(email);
         
         
+         
         JOptionPane.showMessageDialog(this, "New record added");
+        
         
             JDocID.setText("");
             JFNameDoc.setText("");
@@ -292,6 +403,10 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
             JCityDoc.setText("");
             JAddressDoc.setText("");
             JPhoneNoDoc.setText("");
+            JPinCode.setText("");
+            JEmail.setText("");
+            JCountryDoc.setText("");
+            JCommunityDoc.setText("");
         
         }
         //String DocID = JDocID.getText();
@@ -378,6 +493,82 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         DDA.setVisible(true); 
     }//GEN-LAST:event_JBackAddDoctorButtonActionPerformed
 
+    private void JPhoneNoDocKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JPhoneNoDocKeyPressed
+        // TODO add your handling code here:
+        try{
+        String CellNumber = JPhoneNoDoc.getText();
+        int length = CellNumber.length();
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit
+            if(length<10){
+                JPhoneNoDoc.setEditable(true);
+                
+            } else{
+                JPhoneNoDoc.setEditable(false);
+            }
+        }else{
+            if (evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                JPhoneNoDoc.setEditable(true);
+            } else{
+                JPhoneNoDoc.setEditable(false);
+            }
+        }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+    }//GEN-LAST:event_JPhoneNoDocKeyPressed
+
+    private void JAgeDocKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JAgeDocKeyPressed
+        // TODO add your handling code here:
+        String CellNumber = JAgeDoc.getText();
+        int length = CellNumber.length();
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 1
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 2 digit
+            if(length<2){
+                JAgeDoc.setEditable(true);
+                
+            } else{
+                JAgeDoc.setEditable(false);
+            }
+        }else{
+            if (evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                JAgeDoc.setEditable(true);
+            } else{
+                JAgeDoc.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_JAgeDocKeyPressed
+
+    private void JFNameDocKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JFNameDocKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c )|| Character.isISOControl(c)){
+            JFNameDoc.setEditable(true);
+        } else {
+            JFNameDoc.setEditable(false);
+        }
+    }//GEN-LAST:event_JFNameDocKeyPressed
+
+    private void JLNameDocKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JLNameDocKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c) || Character.isWhitespace(c )|| Character.isISOControl(c)){
+            JLNameDoc.setEditable(true);
+        } else {
+            JLNameDoc.setEditable(false);
+        }
+    }//GEN-LAST:event_JLNameDocKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -419,19 +610,26 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
     private javax.swing.JTextField JBGroupDoc;
     private javax.swing.JButton JBackAddDoctorButton;
     private javax.swing.JTextField JCityDoc;
+    private javax.swing.JTextField JCommunityDoc;
+    private javax.swing.JTextField JCountryDoc;
     private javax.swing.JComboBox<String> JDepartmentDoc;
     private javax.swing.JTextField JDocID;
+    private javax.swing.JTextField JEmail;
     private javax.swing.JTextField JFNameDoc;
     private javax.swing.JComboBox<String> JGenderDoc;
     private com.toedter.calendar.JDateChooser JJoiningDateDoc;
     private javax.swing.JTextField JLNameDoc;
     private javax.swing.JTextField JPhoneNoDoc;
+    private javax.swing.JTextField JPinCode;
     private javax.swing.JButton JSaveDocButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

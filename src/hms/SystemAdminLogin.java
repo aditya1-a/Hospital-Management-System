@@ -9,6 +9,8 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import model.DoctorModel;
 
+   
+
 /**
  *
  * @author anupamaditya
@@ -18,6 +20,8 @@ public class SystemAdminLogin extends javax.swing.JFrame {
     /**
      * Creates new form DoctorLogin
      */
+
+    
     public SystemAdminLogin() {
         initComponents();
     }

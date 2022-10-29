@@ -11,16 +11,15 @@ package model;
 public class House {
     
     private String streetAddress;
+    private Community community;
     private City city;
-    private String pincode;
-    private String country;
 
-    public String getStreetAddress() {
-        return streetAddress;
+    public Community getCommunity() {
+        return community;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 
     public City getCity() {
@@ -31,21 +30,15 @@ public class House {
         this.city = city;
     }
 
-    public String getPincode() {
-        return pincode;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
+    
     
     
     

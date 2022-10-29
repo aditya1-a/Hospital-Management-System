@@ -5,6 +5,8 @@
 package hms;
 
 import model.DoctorDirectory;
+import model.HospitalDirectory;
+import model.PatientDirectory;
 
 public class DoctorDetailsAdmin extends javax.swing.JFrame {
 
@@ -13,6 +15,8 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
      */
     
     DoctorDirectory DocDirectory;
+    PatientDirectory PatDirectory;
+    HospitalDirectory HospDirectory;
     
     public DoctorDetailsAdmin() {
         initComponents();
@@ -25,9 +29,20 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
     DoctorDetailsAdmin(DoctorDirectory DocDirectory) { 
         initComponents();
        
-        this.DocDirectory = DocDirectory;
+        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
+        this.PatDirectory = PatDirectory;
+        this.HospDirectory = HospDirectory;
     }
 
+    DoctorDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        initComponents();
+       
+        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
+        this.PatDirectory = PatDirectory;
+        this.HospDirectory = HospDirectory;
+    }
+
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
