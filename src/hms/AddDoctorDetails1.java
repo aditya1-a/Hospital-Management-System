@@ -32,19 +32,42 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
      */
     
     DoctorDirectory DocDirectory;
+    HospitalDirectory HospDirectory;
+    PatientDirectory PatDirectory;
+ 
 
     
-    public AddDoctorDetails1(DoctorDirectory DocDirectory) {
-        initComponents();
-        
-        this.DocDirectory = DocDirectory;   //we are pushing whole reference to DoctorDirectory
-        
-    }
+//    public AddDoctorDetails1(DoctorDirectory DocDirectory) {
+//        initComponents();
+//        
+//        this.DocDirectory = DocDirectory;   //we are pushing whole reference to DoctorDirectory
+//        
+//    }
     
     
     private AddDoctorDetails1() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       initComponents();
     }
+
+//    AddDoctorDetails1(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory) {
+//       //new throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//       initComponents();
+//       this.DocDirectory = DocDirectory;
+//    }
+
+    AddDoctorDetails1(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         initComponents();
+         this.DocDirectory = DocDirectory;
+         this.HospDirectory = HospDirectory;
+         this.PatDirectory = PatDirectory;
+         
+       
+    }
+
+    
+    
 
    
 
@@ -489,7 +512,7 @@ public class AddDoctorDetails1 extends javax.swing.JFrame {
         // TODO add your handling code here:
   
         
-        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
+        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         DDA.setVisible(true); 
     }//GEN-LAST:event_JBackAddDoctorButtonActionPerformed
 

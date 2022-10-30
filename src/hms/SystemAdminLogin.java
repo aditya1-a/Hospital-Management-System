@@ -21,9 +21,17 @@ public class SystemAdminLogin extends javax.swing.JFrame {
      * Creates new form DoctorLogin
      */
 
+    DoctorModel doctorModel;
     
     public SystemAdminLogin() {
         initComponents();
+        
+        
+    }
+    
+    public SystemAdminLogin(DoctorModel doctorModel) {
+        initComponents();
+        this.doctorModel= doctorModel;
     }
 
     /**
@@ -144,7 +152,13 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         doc.setUserName(JUserName.getText());
         doc.setPassWord(JPassword.getText());
         
-         if (doc.getUserName().isEmpty() || doc.getPassWord().isEmpty()){
+         if (doc.getUserName().equals("admin") && doc.getPassWord().equals("abcde")){
+            SystemAdmin lp = new SystemAdmin();
+            lp.setVisible(true);
+            this.dispose();
+        }
+
+         else if (doc.getUserName().isEmpty() || doc.getPassWord().isEmpty()){
             JOptionPane.showMessageDialog(this,
                     "Please enter all fields",
                     "Try Again",
@@ -152,11 +166,7 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         return;
         //username = admin & password = abcde
          }
-        if (doc.getUserName().equals("admin") && doc.getPassWord().equals("abcde")){
-            SystemAdmin lp = new SystemAdmin();
-            lp.setVisible(true);
-            this.dispose();
-        }
+        
         else{
             JOptionPane.showMessageDialog(this,
                     "Please enter correct username or password",
@@ -200,6 +210,8 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

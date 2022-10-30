@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class DoctorDirectory {
     
-    private ArrayList<DocData> DocDirectory;
+    private  ArrayList<DocData> DocDirectory;
     
     public DoctorDirectory(){                            //this method is created whenever you can call docdirectory
         this.DocDirectory = new ArrayList<DocData>();

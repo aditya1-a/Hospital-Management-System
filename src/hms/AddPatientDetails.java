@@ -28,20 +28,26 @@ public class AddPatientDetails extends javax.swing.JFrame {
      */
     
       PatientDirectory PatDirectory;
+       DoctorDirectory DocDirectory;
+       HospitalDirectory HospDirectory;
 
-
-    
-    public AddPatientDetails(PatientDirectory PatDirectory) {
-        initComponents();
-        
-        this.PatDirectory = PatDirectory; 
-        
-    }
     
     private AddPatientDetails() {
        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-     
+       initComponents();
+    }   
+       
+    public AddPatientDetails(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        initComponents();
+        
+        this.DocDirectory = DocDirectory;   //we are pushing whole reference to DoctorDirectory
+        this.HospDirectory = HospDirectory;
+        this.PatDirectory = PatDirectory; 
+        
+        
     }
+    
+    
     
 
 
@@ -550,7 +556,7 @@ public class AddPatientDetails extends javax.swing.JFrame {
     private void JBackAddDoctorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBackAddDoctorButtonActionPerformed
         // TODO add your handling code here:
 
-        PatientDetailsAdmin PDA = new PatientDetailsAdmin(PatDirectory);
+        PatientDetailsAdmin PDA = new PatientDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         PDA.setVisible(true);
     }//GEN-LAST:event_JBackAddDoctorButtonActionPerformed
 

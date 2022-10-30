@@ -34,19 +34,31 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
     
     
     DoctorDirectory DocDirectory;
-  
+    HospitalDirectory HospDirectory;
+    PatientDirectory PatDirectory;
+
     
-    public ViewDoctorDetails(DoctorDirectory DocDirectory) {
-        initComponents();
-        
-        this.DocDirectory = DocDirectory;
-        
-       populateTable();
-    }
+//    public ViewDoctorDetails(DoctorDirectory DocDirectory) {
+//        initComponents();
+//        
+//        this.DocDirectory = DocDirectory;
+//        
+//       populateTable();
+//    }
 
     private ViewDoctorDetails() {
-       throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      initComponents();
    }
+
+    ViewDoctorDetails(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody 
+        initComponents();
+        this.DocDirectory = DocDirectory;
+        this.HospDirectory = HospDirectory;
+         this.PatDirectory = PatDirectory;
+        populateTable();
+    }
 
     
 
@@ -663,7 +675,7 @@ public class ViewDoctorDetails extends javax.swing.JFrame {
 
     private void JBackViewDoctorBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBackViewDoctorBtnMouseClicked
         // TODO add your handling code here:
-        DoctorDetailsAdmin dda1 = new DoctorDetailsAdmin(DocDirectory);
+        DoctorDetailsAdmin dda1 = new DoctorDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         dda1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JBackViewDoctorBtnMouseClicked

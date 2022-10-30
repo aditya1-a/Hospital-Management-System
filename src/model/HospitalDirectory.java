@@ -11,13 +11,13 @@ import java.util.ArrayList;
  * @author anupamaditya
  */
 public class HospitalDirectory {
-    private ArrayList<HospitalData> HospDirectory;
+    private  ArrayList<HospitalData> HospDirectory;   //new
     
     public HospitalDirectory(){                            //this method is created whenever you can call docdirectory
         this.HospDirectory = new ArrayList<HospitalData>();
     }
 
-    public ArrayList<HospitalData> getHospitalDirectory() {
+    public  ArrayList<HospitalData> getHospitalDirectory() {
         return HospDirectory;
     }
 

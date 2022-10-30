@@ -21,26 +21,49 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
     public DoctorDetailsAdmin() {
         initComponents();
         
-        DocDirectory = new DoctorDirectory();
+        //DocDirectory = new DoctorDirectory();
+        
         //addDefaultData(this.DocDirectory);
             
     }
 
-    DoctorDetailsAdmin(DoctorDirectory DocDirectory) { 
-        initComponents();
-       
-        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
-        this.PatDirectory = PatDirectory;
-        this.HospDirectory = HospDirectory;
-    }
+//    DoctorDetailsAdmin(DoctorDirectory DocDirectory) { 
+//        initComponents();
+//       
+//        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
+// 
+//    }
+
+//    DoctorDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+//        initComponents();
+//       
+//        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
+//        this.PatDirectory = PatDirectory;
+//        this.HospDirectory = HospDirectory;
+//    }
 
     DoctorDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        //new throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         initComponents();
-       
-        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
+        this.DocDirectory = DocDirectory;
         this.PatDirectory = PatDirectory;
         this.HospDirectory = HospDirectory;
+        
+                
     }
+
+//    DoctorDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+
+//    DoctorDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
+//      
+    
+
+    
 
    
     /**
@@ -141,7 +164,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
     private void JViewDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JViewDocBtnActionPerformed
         // TODO add your handling code here:
         
-        ViewDoctorDetails Vdd = new ViewDoctorDetails(DocDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
+        ViewDoctorDetails Vdd = new ViewDoctorDetails(DocDirectory, HospDirectory, PatDirectory );     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
         Vdd.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JViewDocBtnActionPerformed
@@ -156,7 +179,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
 
     private void JAddDoctorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JAddDoctorButtonMouseClicked
         // TODO add your handling code here:
-        AddDoctorDetails1 Add = new AddDoctorDetails1(DocDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
+        AddDoctorDetails1 Add = new AddDoctorDetails1(DocDirectory, HospDirectory, PatDirectory );     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
         Add.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JAddDoctorButtonMouseClicked
@@ -171,7 +194,7 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         //DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
-       SystemAdmin SA = new SystemAdmin(DocDirectory);
+       SystemAdmin SA = new SystemAdmin(DocDirectory, HospDirectory, PatDirectory);
        SA.setVisible(true); 
        this.dispose();
     }//GEN-LAST:event_btnBackDoctorDetailsAdminActionPerformed
@@ -202,7 +225,10 @@ public class DoctorDetailsAdmin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DoctorDetailsAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+  
+        
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

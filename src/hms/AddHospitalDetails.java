@@ -22,19 +22,37 @@ public class AddHospitalDetails extends javax.swing.JFrame {
      * Creates new form AddHospitalDetails
      */
     
-    HospitalDirectory HospDirectory;
+      HospitalDirectory HospDirectory;
+      DoctorDirectory DocDirectory;
+      PatientDirectory PatDirectory;
  
-    
-    public AddHospitalDetails(HospitalDirectory HospDirectory) {
-        initComponents();
-        
-        this.HospDirectory = HospDirectory;
-    }
-
     private AddHospitalDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        initComponents();
+    }
+      
+//    public AddHospitalDetails(HospitalDirectory HospDirectory) {
+//        initComponents();
+//        
+//        this.HospDirectory = HospDirectory;
+//    }
+
+//    private AddHospitalDetails(HospitalDirectory HospDirectory, DoctorDirectory DocDirectory) {
+//        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        initComponents();
+//    }
+
+    AddHospitalDetails(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        initComponents();
+        this.PatDirectory = PatDirectory;
+        this.HospDirectory = HospDirectory;
+        this.DocDirectory = DocDirectory;
     }
 
+    
+
+    
    
 
     /**
@@ -187,7 +205,7 @@ public class AddHospitalDetails extends javax.swing.JFrame {
     private void JBackAddDoctorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBackAddDoctorButtonActionPerformed
         // TODO add your handling code here:
 
-        HospitalDetailsAdmin HDA = new HospitalDetailsAdmin(HospDirectory);
+        HospitalDetailsAdmin HDA = new HospitalDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         HDA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JBackAddDoctorButtonActionPerformed
@@ -397,6 +415,10 @@ public class AddHospitalDetails extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
+         HospitalDirectory HospDirectory;
+         DoctorDirectory DocDirectory;
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

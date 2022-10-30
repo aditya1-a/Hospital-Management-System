@@ -12,6 +12,8 @@ public class DoctorModel {
     private String userName;
     private String passWord;
 
+    
+    
     public String getUserName() {
         return userName;
     }

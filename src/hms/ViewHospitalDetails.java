@@ -24,21 +24,36 @@ public class ViewHospitalDetails extends javax.swing.JFrame {
      * Creates new form ViewHospitalDetails
      */
     
-    HospitalDirectory HospDirectory;
+      HospitalDirectory HospDirectory;
+      DoctorDirectory DocDirectory;
+      PatientDirectory PatDirectory;
    
     
-    public ViewHospitalDetails(HospitalDirectory HospDirectory) {
+//    public ViewHospitalDetails(HospitalDirectory HospDirectory) {
+//        initComponents();
+//        
+//        this.HospDirectory = HospDirectory;
+//        
+//       populateTable();
+//    }
+
+    private ViewHospitalDetails() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         initComponents();
-        
+    }
+    
+
+    ViewHospitalDetails(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        initComponents();
+       this.PatDirectory = PatDirectory;
         this.HospDirectory = HospDirectory;
+        this.DocDirectory = DocDirectory;
         
        populateTable();
     }
 
-    private ViewHospitalDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
     
 
     /**
@@ -282,7 +297,7 @@ public class ViewHospitalDetails extends javax.swing.JFrame {
 
     private void JBackPatientViewBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBackPatientViewBtnMouseClicked
         // TODO add your handling code here:
-        HospitalDetailsAdmin hda1 = new HospitalDetailsAdmin(HospDirectory);
+        HospitalDetailsAdmin hda1 = new HospitalDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         hda1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JBackPatientViewBtnMouseClicked

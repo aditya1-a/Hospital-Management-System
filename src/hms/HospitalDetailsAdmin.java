@@ -26,29 +26,28 @@ public class HospitalDetailsAdmin extends javax.swing.JFrame {
     public HospitalDetailsAdmin() {
         initComponents();
         
-        HospDirectory = new HospitalDirectory();
+//        HospDirectory = new HospitalDirectory();
     }
 
-    HospitalDetailsAdmin(HospitalDirectory HospDirectory) {
-         initComponents();
-       
-        this.HospDirectory = HospDirectory;
-    }
+//    HospitalDetailsAdmin(HospitalDirectory HospDirectory) {
+//         initComponents();
+//       
+//        this.HospDirectory = HospDirectory;
+//    }
 
-    HospitalDetailsAdmin(HospitalDirectory HospDirectory, PatientDirectory PatDirectory, DoctorDirectory DocDirectory) {
+    HospitalDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         initComponents();
-        this.HospDirectory = HospDirectory;
-        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
         this.PatDirectory = PatDirectory;
+        this.HospDirectory = HospDirectory;
+        this.DocDirectory = DocDirectory;
     }
 
-    HospitalDetailsAdmin(HospitalDirectory HospDirectory, DoctorDirectory DocDirectory, PatientDirectory PatDirectory) {
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        this.HospDirectory = HospDirectory;
-        this.DocDirectory = DocDirectory;  //we are pushing whole reference to DoctorDirectory
-        this.PatDirectory = PatDirectory;
-    }
+    
+    
+
+    
+    
 
     
 
@@ -121,7 +120,7 @@ public class HospitalDetailsAdmin extends javax.swing.JFrame {
 
     private void JAddDoctorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JAddDoctorButtonMouseClicked
         // TODO add your handling code here:
-        AddHospitalDetails Ahd = new AddHospitalDetails(HospDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
+        AddHospitalDetails Ahd = new AddHospitalDetails(DocDirectory, HospDirectory, PatDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
         Ahd.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JAddDoctorButtonMouseClicked
@@ -129,7 +128,7 @@ public class HospitalDetailsAdmin extends javax.swing.JFrame {
     private void JViewDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JViewDocBtnActionPerformed
         // TODO add your handling code here:
 
-        ViewHospitalDetails Vhd = new ViewHospitalDetails(HospDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
+        ViewHospitalDetails Vhd = new ViewHospitalDetails(DocDirectory, HospDirectory, PatDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
         Vhd.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JViewDocBtnActionPerformed
@@ -144,7 +143,7 @@ public class HospitalDetailsAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         //DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
-        SystemAdmin SA = new SystemAdmin(HospDirectory);
+        SystemAdmin SA = new SystemAdmin(DocDirectory, HospDirectory, PatDirectory);
         SA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackDoctorDetailsAdminActionPerformed

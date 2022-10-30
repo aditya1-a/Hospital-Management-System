@@ -29,21 +29,28 @@ public class ViewPatientDetails extends javax.swing.JFrame {
      * Creates new form ViewPatientDetails
      */
     
-     PatientDirectory PatDirectory;
+       PatientDirectory PatDirectory;
+       DoctorDirectory DocDirectory;
+       HospitalDirectory HospDirectory;
  
     
-    public ViewPatientDetails(PatientDirectory PatDirectory) {
+       private ViewPatientDetails() {
+       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       initComponents();
+    }
+       
+    public ViewPatientDetails(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
         initComponents();
         
-        this.PatDirectory = PatDirectory;
+          this.DocDirectory = DocDirectory;   //we are pushing whole reference to DoctorDirectory
+         this.HospDirectory = HospDirectory;
+         this.PatDirectory = PatDirectory; 
         
        populateTable();
         
     }
 
-    private ViewPatientDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     
 
@@ -634,7 +641,7 @@ public class ViewPatientDetails extends javax.swing.JFrame {
 
     private void JBackPatientViewBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBackPatientViewBtnMouseClicked
         // TODO add your handling code here:
-        PatientDetailsAdmin pda1 = new PatientDetailsAdmin(PatDirectory);
+        PatientDetailsAdmin pda1 = new PatientDetailsAdmin(DocDirectory, HospDirectory,PatDirectory);
         pda1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JBackPatientViewBtnMouseClicked

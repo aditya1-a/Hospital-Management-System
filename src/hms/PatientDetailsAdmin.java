@@ -28,21 +28,22 @@ public class PatientDetailsAdmin extends javax.swing.JFrame {
     
     public PatientDetailsAdmin() {
         initComponents();
-        PatDirectory = new PatientDirectory();
+//        PatDirectory = new PatientDirectory();
         
     }
 
-    PatientDetailsAdmin(PatientDirectory PatDirectory) {
-        initComponents();
-       
-        this.PatDirectory = PatDirectory;
-    }
+//    PatientDetailsAdmin(PatientDirectory PatDirectory) {
+//        initComponents();
+//       
+//        this.PatDirectory = PatDirectory;
+//    }
 
-    PatientDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory) {
+    PatientDetailsAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
      //   throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         initComponents();
         this.DocDirectory = DocDirectory;   //we are pushing whole reference to DoctorDirectory
         this.HospDirectory = HospDirectory;
+        this.PatDirectory = PatDirectory;
     }
 
 //    PatientDetailsAdmin(PatientDirectory PatDirectory, DoctorDirectory DocDirectory, HospitalDirectory HospDirectory) {
@@ -144,7 +145,7 @@ public class PatientDetailsAdmin extends javax.swing.JFrame {
 
     private void BtnAddPatientDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnAddPatientDetailsMouseClicked
         // TODO add your handling code here:
-        AddPatientDetails APD = new AddPatientDetails(PatDirectory);
+        AddPatientDetails APD = new AddPatientDetails(DocDirectory, HospDirectory, PatDirectory);
         APD.setVisible(true);
         this.dispose();
         
@@ -156,14 +157,14 @@ public class PatientDetailsAdmin extends javax.swing.JFrame {
 
     private void JBackPatientDetailsAdminBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBackPatientDetailsAdminBtnMouseClicked
         // TODO add your handling code here:
-        SystemAdmin SA1 = new SystemAdmin(PatDirectory);
+        SystemAdmin SA1 = new SystemAdmin(DocDirectory, HospDirectory, PatDirectory);
        SA1.setVisible(true); 
        this.dispose();
     }//GEN-LAST:event_JBackPatientDetailsAdminBtnMouseClicked
 
     private void BtnViewPatientDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnViewPatientDetailsMouseClicked
         // TODO add your handling code here:
-        ViewPatientDetails VPD = new ViewPatientDetails(PatDirectory);
+        ViewPatientDetails VPD = new ViewPatientDetails(DocDirectory, HospDirectory, PatDirectory);
         VPD.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnViewPatientDetailsMouseClicked

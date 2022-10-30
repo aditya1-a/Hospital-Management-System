@@ -4,6 +4,11 @@
  */
 package hms;
 
+import model.DoctorDirectory;
+import model.DoctorModel;
+import model.HospitalDirectory;
+import model.PatientDirectory;
+
 
 
 
@@ -16,9 +21,23 @@ public class LoginPage extends javax.swing.JFrame {
     /**
      * Creates new form LoginPage
      */
+    
+
+  DoctorModel doctorModel;
+    
     public LoginPage() {
         initComponents();
+     
+        
     }
+    
+    public LoginPage(DoctorModel doctorModel) {
+        initComponents();
+   
+        this.doctorModel = doctorModel;
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

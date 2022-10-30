@@ -5,6 +5,7 @@
 package hms;
 
 import model.DoctorDirectory;
+import model.DoctorModel;
 import model.HospitalDirectory;
 import model.PatientDirectory;
 
@@ -22,33 +23,40 @@ public class SystemAdmin extends javax.swing.JFrame {
     DoctorDirectory DocDirectory;
     PatientDirectory PatDirectory;
     HospitalDirectory HospDirectory;
+  
     
     public SystemAdmin() {
         initComponents();
         
         DocDirectory = new DoctorDirectory();
-        PatDirectory = new PatientDirectory();
+        PatDirectory  = new PatientDirectory();
         HospDirectory = new HospitalDirectory();
+        
+//        DocDirectory = new DoctorDirectory();
+//        PatDirectory = new PatientDirectory();
+//        HospDirectory = new HospitalDirectory();
     }
 
-    SystemAdmin(DoctorDirectory DocDirectory) {
-       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-       initComponents();
-       this.DocDirectory = DocDirectory;
-      
-       
-    }
+//    SystemAdmin(DoctorDirectory DocDirectory) {
+//       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//       initComponents();
+//       this.DocDirectory = DocDirectory;
+//      
+//       
+//    }
 
-    SystemAdmin(PatientDirectory PatDirectory) {
-        initComponents();
-        this.PatDirectory = PatDirectory;
-    }
+//    SystemAdmin(PatientDirectory PatDirectory, HospitalDirectory HospDirectory, DoctorDirectory DocDirectory ) {
+//        initComponents();
+//        this.PatDirectory = PatDirectory;
+//        this.HospDirectory = HospDirectory;
+//        this.DocDirectory = DocDirectory;
+//    }
 
-    SystemAdmin(HospitalDirectory HospDirectory) {
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        initComponents();
-        this.HospDirectory = HospDirectory;
-    }
+//    SystemAdmin(HospitalDirectory HospDirectory) {
+//        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        initComponents();
+//        this.HospDirectory = HospDirectory;
+//    }
 
 //    SystemAdmin(PatientDirectory PatDirectory, HospitalDirectory HospDirectory, DoctorDirectory DocDirectory) {
 //        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -67,6 +75,36 @@ public class SystemAdmin extends javax.swing.JFrame {
 //        this.HospDirectory = HospDirectory;
 //        
 //    }
+
+//    SystemAdmin(HospitalDirectory HospDirectory, DoctorDirectory DocDirectory) {
+//        initComponents();
+//        
+//        this.HospDirectory = HospDirectory;
+//        this.DocDirectory = DocDirectory;
+//    }
+
+//    SystemAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+
+//    SystemAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory) {
+//       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//        initComponents();
+//        
+//    }
+
+    SystemAdmin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        initComponents();
+        this.PatDirectory = PatDirectory;
+        this.HospDirectory = HospDirectory;
+        this.DocDirectory = DocDirectory;
+        
+    }
+
+    
+
+   
 
     
     
@@ -183,7 +221,7 @@ public class SystemAdmin extends javax.swing.JFrame {
 
     private void JDoctorDetailAdminButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JDoctorDetailAdminButtonMouseClicked
         // TODO add your handling code here:
-        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
+        DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         DDA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JDoctorDetailAdminButtonMouseClicked
@@ -196,7 +234,7 @@ public class SystemAdmin extends javax.swing.JFrame {
 
     private void JPatientDetailsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPatientDetailsBtnMouseClicked
         // TODO add your handling code here:
-        PatientDetailsAdmin PDA = new PatientDetailsAdmin(PatDirectory);
+        PatientDetailsAdmin PDA = new PatientDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         PDA.setVisible(true);
         this.dispose();
         
@@ -204,7 +242,7 @@ public class SystemAdmin extends javax.swing.JFrame {
 
     private void JHospitalDetailsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JHospitalDetailsBtnMouseClicked
         // TODO add your handling code here:
-        HospitalDetailsAdmin HDA = new HospitalDetailsAdmin(HospDirectory);
+        HospitalDetailsAdmin HDA = new HospitalDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         HDA.setVisible(true);
         this.dispose();
         
@@ -237,6 +275,9 @@ public class SystemAdmin extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
