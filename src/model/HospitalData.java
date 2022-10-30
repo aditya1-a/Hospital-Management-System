@@ -16,6 +16,16 @@ public class HospitalData {
     private Community pincode;
     private String PhoneNo;
     private String emailAddress;
+    private City Country;
+
+    public City getCountry() {
+        return Country;
+    }
+
+    public void setCountry(City Country) {
+        this.Country = Country;
+    }
+    
 
     public String getHospitalName() {
         return hospitalName;

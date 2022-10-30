@@ -4,7 +4,9 @@
  */
 package model;
 
+import java.util.List;
 import java.util.Date;
+
 
 /**
  *
@@ -15,6 +17,10 @@ public class PatData extends PersonModel{
      private double heightInCms;
      private double weightInKgs;
      private Date VisitingDate;
+     private List<Community> communityList;
+
+    
+     
 
     public Date getVisitingDate() {
         return VisitingDate;

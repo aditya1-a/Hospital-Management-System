@@ -8,39 +8,18 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import model.DoctorModel;
-import model.DoctorDirectory;
-import model.HospitalDirectory;
-import model.PatientDirectory;
-
-   
 
 /**
  *
  * @author anupamaditya
  */
-public class SystemAdminLogin extends javax.swing.JFrame {
+public class PatientLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form DoctorLogin
      */
-
-    //DoctorModel doctorModel;
-    DoctorDirectory DocDirectory;
-    PatientDirectory PatDirectory;
-    HospitalDirectory HospDirectory;
-    
-    public SystemAdminLogin() {
+    public PatientLogin() {
         initComponents();
-        
-        
-    }
-    
-    public SystemAdminLogin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
-        initComponents();
-//        this.doctorModel= doctorModel;
-        this.DocDirectory = DocDirectory;
-        this.PatDirectory = PatDirectory;
-        this.HospDirectory = HospDirectory;
     }
 
     /**
@@ -57,10 +36,10 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         JUserName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        LoginSystemAdmin = new javax.swing.JButton();
+        LoginDoc = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         JPassword = new javax.swing.JPasswordField();
-        JBackAdminPanelButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -71,7 +50,7 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel3.setText(" ADMIN'S LOGIN PANEL");
+        jLabel3.setText(" PATIENT'S LOGIN PANEL");
         jLabel3.setOpaque(true);
         jPanel1.add(jLabel3);
         jLabel3.setBounds(1100, 280, 230, 30);
@@ -93,16 +72,16 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(1080, 410, 50, 60);
 
-        LoginSystemAdmin.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        LoginSystemAdmin.setForeground(new java.awt.Color(0, 102, 153));
-        LoginSystemAdmin.setText("Login");
-        LoginSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
+        LoginDoc.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        LoginDoc.setForeground(new java.awt.Color(0, 102, 153));
+        LoginDoc.setText("Login");
+        LoginDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginSystemAdminActionPerformed(evt);
+                LoginDocActionPerformed(evt);
             }
         });
-        jPanel1.add(LoginSystemAdmin);
-        LoginSystemAdmin.setBounds(1080, 510, 110, 30);
+        jPanel1.add(LoginDoc);
+        LoginDoc.setBounds(1080, 510, 110, 30);
 
         jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 102, 153));
@@ -112,16 +91,16 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         jPanel1.add(JPassword);
         JPassword.setBounds(1140, 430, 200, 30);
 
-        JBackAdminPanelButton.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        JBackAdminPanelButton.setForeground(new java.awt.Color(0, 102, 153));
-        JBackAdminPanelButton.setText("Back");
-        JBackAdminPanelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 102, 153));
+        jButton1.setText("Back");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JBackAdminPanelButtonMouseClicked(evt);
+                jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(JBackAdminPanelButton);
-        JBackAdminPanelButton.setBounds(1170, 550, 72, 23);
+        jPanel1.add(jButton1);
+        jButton1.setBounds(1170, 550, 72, 23);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
         jPanel1.add(jLabel2);
@@ -155,41 +134,38 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JUserNameActionPerformed
 
-    private void LoginSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginSystemAdminActionPerformed
+    private void LoginDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginDocActionPerformed
         // TODO add your handling code here:
         DoctorModel doc = new DoctorModel();
         doc.setUserName(JUserName.getText());
         doc.setPassWord(JPassword.getText());
         
-         if (doc.getUserName().equals("admin") && doc.getPassWord().equals("abcde")){
-            SystemAdmin lp = new SystemAdmin(DocDirectory, HospDirectory, PatDirectory);
-            lp.setVisible(true);
-            this.dispose();
-        }
-
-         else if (doc.getUserName().isEmpty() || doc.getPassWord().isEmpty()){
+         if (doc.getUserName().isEmpty() || doc.getPassWord().isEmpty()){
             JOptionPane.showMessageDialog(this,
                     "Please enter all fields",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);
         return;
-        //username = admin & password = abcde
+        //username = Doctoradmin & password = abcde
          }
-        
+        if (doc.getUserName().equals("Patadmin") && doc.getPassWord().equals("abcde")){
+            Patient Pat1 = new Patient();
+            Pat1.setVisible(true);
+            this.dispose();
+        }
         else{
             JOptionPane.showMessageDialog(this,
                     "Please enter correct username or password",
                     "Try Again",
                     JOptionPane.ERROR_MESSAGE);     
        }  
-    }//GEN-LAST:event_LoginSystemAdminActionPerformed
+    }//GEN-LAST:event_LoginDocActionPerformed
 
-    private void JBackAdminPanelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBackAdminPanelButtonMouseClicked
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        LoginPage lp = new LoginPage(DocDirectory, HospDirectory, PatDirectory);
+        LoginPage lp = new LoginPage();
         lp.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_JBackAdminPanelButtonMouseClicked
+    }//GEN-LAST:event_jButton1MouseClicked
    
     
     /**
@@ -209,31 +185,30 @@ public class SystemAdminLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PatientLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DoctorLogin().setVisible(true);
+                new PatientLogin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBackAdminPanelButton;
     private javax.swing.JPasswordField JPassword;
     private javax.swing.JTextField JUserName;
-    private javax.swing.JButton LoginSystemAdmin;
+    private javax.swing.JButton LoginDoc;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

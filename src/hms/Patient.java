@@ -4,6 +4,9 @@
  */
 package hms;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author anupamaditya
@@ -26,21 +29,118 @@ public class Patient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        JBackSearchHospInPatBtn = new javax.swing.JButton();
+        SearchPat = new javax.swing.JLabel();
+        TFSearchPat = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Search Hospitals");
+        jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 740, 80));
+
+        JBackSearchHospInPatBtn.setBackground(new java.awt.Color(0, 153, 204));
+        JBackSearchHospInPatBtn.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/logout-2.png")); // NOI18N
+        JBackSearchHospInPatBtn.setText("Logout");
+        JBackSearchHospInPatBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JBackSearchHospInPatBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JBackSearchHospInPatBtnMouseClicked(evt);
+            }
+        });
+        JBackSearchHospInPatBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBackSearchHospInPatBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JBackSearchHospInPatBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, 150, 80));
+
+        SearchPat.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        SearchPat.setForeground(new java.awt.Color(255, 255, 255));
+        SearchPat.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/search.png")); // NOI18N
+        SearchPat.setText("Enter Hospital Name or Community Name");
+        SearchPat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(SearchPat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 340, 40));
+
+        TFSearchPat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFSearchPatActionPerformed(evt);
+            }
+        });
+        TFSearchPat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TFSearchPatKeyReleased(evt);
+            }
+        });
+        jPanel1.add(TFSearchPat, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 550, 40));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Hospital Name", "Phone No", "Email", "Community", "City", "Pincode"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 950, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBackSearchHospInPatBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBackSearchHospInPatBtnMouseClicked
+        // TODO add your handling code here:
+        // DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
+        //DDA.setVisible(true);
+    }//GEN-LAST:event_JBackSearchHospInPatBtnMouseClicked
+
+    private void JBackSearchHospInPatBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBackSearchHospInPatBtnActionPerformed
+        // TODO add your handling code here:
+
+        JFrame frame = new JFrame("Logout");
+        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to logout", "logout", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
+        {
+            //System.exit(0);
+             PatientLogin PL = new PatientLogin();
+             PL.setVisible(true);
+        }
+    }//GEN-LAST:event_JBackSearchHospInPatBtnActionPerformed
+
+    private void TFSearchPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFSearchPatActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_TFSearchPatActionPerformed
+
+    private void TFSearchPatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFSearchPatKeyReleased
+        // TODO add your handling code here:
+
+        String search = TFSearchPat.getText();
+        search(search);
+    }//GEN-LAST:event_TFSearchPatKeyReleased
 
     /**
      * @param args the command line arguments
@@ -78,5 +178,12 @@ public class Patient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBackSearchHospInPatBtn;
+    private javax.swing.JLabel SearchPat;
+    private javax.swing.JTextField TFSearchPat;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

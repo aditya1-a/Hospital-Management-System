@@ -4,6 +4,8 @@
  */
 package hms;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.DoctorDirectory;
 import model.DoctorModel;
 import model.HospitalDirectory;
@@ -28,9 +30,9 @@ public class SystemAdmin extends javax.swing.JFrame {
     public SystemAdmin() {
         initComponents();
         
-        DocDirectory = new DoctorDirectory();
-        PatDirectory  = new PatientDirectory();
-        HospDirectory = new HospitalDirectory();
+//        DocDirectory = new DoctorDirectory();
+//        PatDirectory  = new PatientDirectory();
+//        HospDirectory = new HospitalDirectory();
         
 //        DocDirectory = new DoctorDirectory();
 //        PatDirectory = new PatientDirectory();
@@ -118,7 +120,7 @@ public class SystemAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        JHospitalDetailsBtn = new javax.swing.JButton();
+        JLogOutSystemAdminBtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -126,6 +128,7 @@ public class SystemAdmin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         JDoctorDetailAdminButton = new javax.swing.JButton();
+        JHospitalDetailsBtn1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -133,16 +136,16 @@ public class SystemAdmin extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        JHospitalDetailsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        JHospitalDetailsBtn.setForeground(new java.awt.Color(0, 102, 153));
-        JHospitalDetailsBtn.setText("Hospital Details");
-        JHospitalDetailsBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        JLogOutSystemAdminBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JLogOutSystemAdminBtn.setForeground(new java.awt.Color(0, 102, 153));
+        JLogOutSystemAdminBtn.setText("Logout");
+        JLogOutSystemAdminBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JHospitalDetailsBtnMouseClicked(evt);
+                JLogOutSystemAdminBtnMouseClicked(evt);
             }
         });
-        jPanel1.add(JHospitalDetailsBtn);
-        JHospitalDetailsBtn.setBounds(1030, 570, 150, 40);
+        jPanel1.add(JLogOutSystemAdminBtn);
+        JLogOutSystemAdminBtn.setBounds(1370, 210, 150, 40);
 
         jLabel7.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/hospital.png")); // NOI18N
         jPanel1.add(jLabel7);
@@ -190,6 +193,17 @@ public class SystemAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(JDoctorDetailAdminButton);
         JDoctorDetailAdminButton.setBounds(240, 570, 150, 40);
+
+        JHospitalDetailsBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JHospitalDetailsBtn1.setForeground(new java.awt.Color(0, 102, 153));
+        JHospitalDetailsBtn1.setText("Hospital Details");
+        JHospitalDetailsBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JHospitalDetailsBtn1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(JHospitalDetailsBtn1);
+        JHospitalDetailsBtn1.setBounds(1030, 570, 150, 40);
 
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255), 4));
         jPanel1.add(jLabel2);
@@ -240,13 +254,25 @@ public class SystemAdmin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JPatientDetailsBtnMouseClicked
 
-    private void JHospitalDetailsBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JHospitalDetailsBtnMouseClicked
+    private void JLogOutSystemAdminBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLogOutSystemAdminBtnMouseClicked
+        // TODO add your handling code here:
+       JFrame frame = new JFrame("Logout");
+        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to logout", "logout", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_NO_OPTION)
+        {
+            //System.exit(0);
+             SystemAdminLogin SAL2 = new SystemAdminLogin(DocDirectory, HospDirectory, PatDirectory);
+             SAL2.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_JLogOutSystemAdminBtnMouseClicked
+
+    private void JHospitalDetailsBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JHospitalDetailsBtn1MouseClicked
         // TODO add your handling code here:
         HospitalDetailsAdmin HDA = new HospitalDetailsAdmin(DocDirectory, HospDirectory, PatDirectory);
         HDA.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_JHospitalDetailsBtnMouseClicked
+    }//GEN-LAST:event_JHospitalDetailsBtn1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -288,7 +314,8 @@ public class SystemAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JDoctorDetailAdminButton;
-    private javax.swing.JButton JHospitalDetailsBtn;
+    private javax.swing.JButton JHospitalDetailsBtn1;
+    private javax.swing.JButton JLogOutSystemAdminBtn;
     private javax.swing.JButton JPatientDetailsBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

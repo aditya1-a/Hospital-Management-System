@@ -24,17 +24,25 @@ public class LoginPage extends javax.swing.JFrame {
     
 
   DoctorModel doctorModel;
+  DoctorDirectory DocDirectory;
+  PatientDirectory PatDirectory;
+  HospitalDirectory HospDirectory;
     
     public LoginPage() {
         initComponents();
-     
+        DocDirectory = new DoctorDirectory();
+        PatDirectory  = new PatientDirectory();
+        HospDirectory = new HospitalDirectory();
         
     }
     
-    public LoginPage(DoctorModel doctorModel) {
+    public LoginPage(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
         initComponents();
    
-        this.doctorModel = doctorModel;
+      //  this.doctorModel = doctorModel;
+        this.PatDirectory = PatDirectory;
+        this.HospDirectory = HospDirectory;
+        this.DocDirectory = DocDirectory;
     }
 
     
@@ -58,6 +66,8 @@ public class LoginPage extends javax.swing.JFrame {
         JPatientButton = new javax.swing.JButton();
         JSystemAdminButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        JHospitalAdminBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,7 +76,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/engineer.png")); // NOI18N
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(580, 430, 130, 140);
+        jLabel3.setBounds(450, 430, 130, 140);
 
         JCommunityAdminButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         JCommunityAdminButton.setForeground(new java.awt.Color(0, 102, 153));
@@ -77,19 +87,19 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
         jPanel2.add(JCommunityAdminButton);
-        JCommunityAdminButton.setBounds(540, 580, 190, 40);
+        JCommunityAdminButton.setBounds(420, 580, 190, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/medical-team.png")); // NOI18N
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(800, 430, 130, 140);
+        jLabel4.setBounds(680, 430, 130, 140);
 
         jLabel5.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/patient-2.png")); // NOI18N
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(1020, 430, 140, 140);
+        jLabel5.setBounds(900, 420, 140, 140);
 
         jLabel6.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/project-manager.png")); // NOI18N
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(340, 430, 130, 140);
+        jLabel6.setBounds(220, 430, 130, 140);
 
         JDoctorButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         JDoctorButton.setForeground(new java.awt.Color(0, 102, 153));
@@ -100,7 +110,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
         jPanel2.add(JDoctorButton);
-        JDoctorButton.setBounds(790, 580, 170, 40);
+        JDoctorButton.setBounds(670, 580, 170, 40);
 
         JPatientButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         JPatientButton.setForeground(new java.awt.Color(0, 102, 153));
@@ -111,7 +121,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
         jPanel2.add(JPatientButton);
-        JPatientButton.setBounds(1010, 580, 170, 40);
+        JPatientButton.setBounds(900, 580, 170, 40);
 
         JSystemAdminButton.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         JSystemAdminButton.setForeground(new java.awt.Color(0, 102, 153));
@@ -122,15 +132,35 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
         jPanel2.add(JSystemAdminButton);
-        JSystemAdminButton.setBounds(320, 580, 170, 40);
+        JSystemAdminButton.setBounds(200, 580, 170, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/image-3.png")); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(630, 310, 250, 60);
 
+        jLabel7.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/user-4.png")); // NOI18N
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(1130, 430, 140, 140);
+
+        JHospitalAdminBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        JHospitalAdminBtn.setForeground(new java.awt.Color(0, 102, 153));
+        JHospitalAdminBtn.setText("Hospital Admin");
+        JHospitalAdminBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JHospitalAdminBtnMouseClicked(evt);
+            }
+        });
+        JHospitalAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JHospitalAdminBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(JHospitalAdminBtn);
+        JHospitalAdminBtn.setBounds(1120, 580, 170, 40);
+
         jLabel2.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/resize-1666366531100659092ADMINLOGIN1.png")); // NOI18N
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(0, -110, 1430, 1020);
+        jLabel2.setBounds(0, -100, 1430, 1020);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,14 +184,14 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void JSystemAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSystemAdminButtonActionPerformed
         // TODO add your handling code here:
-        SystemAdminLogin SAL = new SystemAdminLogin();
+        SystemAdminLogin SAL = new SystemAdminLogin(DocDirectory, HospDirectory, PatDirectory);
         SAL.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JSystemAdminButtonActionPerformed
 
     private void JCommunityAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCommunityAdminButtonActionPerformed
         // TODO add your handling code here:
-        CommunityAdmins CA = new CommunityAdmins();
+        CommunityAdmins CA = new CommunityAdmins(DocDirectory, HospDirectory, PatDirectory);
         CA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JCommunityAdminButtonActionPerformed
@@ -175,10 +205,21 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void JPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPatientButtonActionPerformed
         // TODO add your handling code here:
-        Patient Pat = new Patient();
-        Pat.setVisible(true);
+        PatientLogin PatLogin = new PatientLogin();
+        PatLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JPatientButtonActionPerformed
+
+    private void JHospitalAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JHospitalAdminBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JHospitalAdminBtnActionPerformed
+
+    private void JHospitalAdminBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JHospitalAdminBtnMouseClicked
+        // TODO add your handling code here:
+        HospitalAdminLogin HAL = new HospitalAdminLogin();
+        HAL.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_JHospitalAdminBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -218,6 +259,7 @@ public class LoginPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JCommunityAdminButton;
     private javax.swing.JButton JDoctorButton;
+    private javax.swing.JButton JHospitalAdminBtn;
     private javax.swing.JButton JPatientButton;
     private javax.swing.JButton JSystemAdminButton;
     private javax.swing.JLabel jLabel1;
@@ -226,6 +268,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

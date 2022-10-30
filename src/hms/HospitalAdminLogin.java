@@ -18,7 +18,7 @@ import model.PatientDirectory;
  *
  * @author anupamaditya
  */
-public class SystemAdminLogin extends javax.swing.JFrame {
+public class HospitalAdminLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form DoctorLogin
@@ -29,13 +29,13 @@ public class SystemAdminLogin extends javax.swing.JFrame {
     PatientDirectory PatDirectory;
     HospitalDirectory HospDirectory;
     
-    public SystemAdminLogin() {
+    public HospitalAdminLogin() {
         initComponents();
         
         
     }
     
-    public SystemAdminLogin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+    public HospitalAdminLogin(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
         initComponents();
 //        this.doctorModel= doctorModel;
         this.DocDirectory = DocDirectory;
@@ -71,10 +71,10 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 153));
-        jLabel3.setText(" ADMIN'S LOGIN PANEL");
+        jLabel3.setText("HOSPITAL ADMIN'S LOGIN PANEL");
         jLabel3.setOpaque(true);
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(1100, 280, 230, 30);
+        jLabel3.setBounds(1070, 280, 300, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/user-2.png")); // NOI18N
         jPanel1.add(jLabel4);
@@ -161,7 +161,7 @@ public class SystemAdminLogin extends javax.swing.JFrame {
         doc.setUserName(JUserName.getText());
         doc.setPassWord(JPassword.getText());
         
-         if (doc.getUserName().equals("admin") && doc.getPassWord().equals("abcde")){
+         if (doc.getUserName().equals("Hospadmin") && doc.getPassWord().equals("abcde")){
             SystemAdmin lp = new SystemAdmin(DocDirectory, HospDirectory, PatDirectory);
             lp.setVisible(true);
             this.dispose();

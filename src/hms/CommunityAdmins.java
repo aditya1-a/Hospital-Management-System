@@ -4,6 +4,10 @@
  */
 package hms;
 
+import model.DoctorDirectory;
+import model.HospitalDirectory;
+import model.PatientDirectory;
+
 /**
  *
  * @author anupamaditya
@@ -13,8 +17,24 @@ public class CommunityAdmins extends javax.swing.JFrame {
     /**
      * Creates new form CommunityAdmins
      */
+    DoctorDirectory DocDirectory;
+    HospitalDirectory HospDirectory;
+    PatientDirectory PatDirectory;
+    
     public CommunityAdmins() {
         initComponents();
+   
+    }
+    
+    CommunityAdmins(DoctorDirectory DocDirectory, HospitalDirectory HospDirectory, PatientDirectory PatDirectory) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         initComponents();
+
+        this.DocDirectory = DocDirectory;
+        this.PatDirectory = PatDirectory;
+        this.HospDirectory = HospDirectory;
+         
+       
     }
 
     /**
@@ -26,21 +46,79 @@ public class CommunityAdmins extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        JAssignHospBtn = new javax.swing.JButton();
+        btnBackDoctorDetailsAdmin = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JAssignHospBtn.setBackground(new java.awt.Color(0, 102, 153));
+        JAssignHospBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        JAssignHospBtn.setForeground(new java.awt.Color(255, 255, 255));
+        JAssignHospBtn.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/add-user-3.png")); // NOI18N
+        JAssignHospBtn.setText("Assign Hospital");
+        JAssignHospBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        JAssignHospBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JAssignHospBtnMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JAssignHospBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 60));
+
+        btnBackDoctorDetailsAdmin.setBackground(new java.awt.Color(0, 153, 204));
+        btnBackDoctorDetailsAdmin.setIcon(new javax.swing.ImageIcon("/Users/anupamaditya/Downloads/undo-2.png")); // NOI18N
+        btnBackDoctorDetailsAdmin.setText("Back");
+        btnBackDoctorDetailsAdmin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBackDoctorDetailsAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackDoctorDetailsAdminMouseClicked(evt);
+            }
+        });
+        btnBackDoctorDetailsAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackDoctorDetailsAdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBackDoctorDetailsAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 150, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JAssignHospBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JAssignHospBtnMouseClicked
+        // TODO add your handling code here:
+        CommunityAdminDetails CAD = new CommunityAdminDetails(DocDirectory, HospDirectory, PatDirectory);     //Add doctor needs reference through DoctorDirectory to DocDirectory variable. DoctorDirectory needs to know the referennce in order to save the data for doctor.
+        CAD.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_JAssignHospBtnMouseClicked
+
+    private void btnBackDoctorDetailsAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackDoctorDetailsAdminMouseClicked
+        // TODO add your handling code here:
+        // DoctorDetailsAdmin DDA = new DoctorDetailsAdmin();
+        //DDA.setVisible(true);
+    }//GEN-LAST:event_btnBackDoctorDetailsAdminMouseClicked
+
+    private void btnBackDoctorDetailsAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackDoctorDetailsAdminActionPerformed
+        // TODO add your handling code here:
+
+        //DoctorDetailsAdmin DDA = new DoctorDetailsAdmin(DocDirectory);
+        LoginPage lp = new LoginPage();
+        lp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBackDoctorDetailsAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +156,8 @@ public class CommunityAdmins extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JAssignHospBtn;
+    private javax.swing.JButton btnBackDoctorDetailsAdmin;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
